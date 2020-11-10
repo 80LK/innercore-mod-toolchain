@@ -64,7 +64,7 @@ class ToolchainConfig(MakeConfig):
 # search for make.json
 make_config = None
 for i in range(0, 4):
-	make_file = os.path.join("../" * i, "make.json")
+	make_file = os.path.join("../" * i, "make.dev.json")
 	if os.path.isfile(make_file):
 		make_config = ToolchainConfig(make_file)
 		break
