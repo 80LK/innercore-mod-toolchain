@@ -2,12 +2,11 @@
     "info": {
         "name": "Sample Mod",
         "description": "This is sample description",
-        "author": "WolfTeam",
+        "author": "Unknown",
         "version": "1.0",
         "icon": "icon.png",
         "api": "CoreEngine"
     },
-	"excludeFromRelease": [],
     "resources": [
 		{
 			"path": "assets/res",
@@ -49,13 +48,16 @@
 			"language": "javascript"
 		}
 	],
-	"compile": [{
-		"source": "native/*",
-		"type": "native"
-	}, {
-		"source": "java/*",
-		"type": "java"
-	}],
+	"compile": [
+		{
+			"source": "native/*",
+			"type": "native"
+		},
+		{
+			"source": "java/*",
+			"type": "java"
+		}
+	],
 	"additional": [
 		{
 			"source": "assets/root/*",
