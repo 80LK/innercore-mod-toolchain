@@ -1,5 +1,4 @@
 {
-
 	"debugAbi": "armeabi-v7a",
 	"abis": [
 		"armeabi-v7a",
@@ -13,6 +12,5 @@
 	"excludeFromRelease": [],
 	"currentProject":"test-project",
 	"pushTo": "storage/emulated/0/games/horizon/packs/innercore-dev/innercore/mods/sample_mod",
-	"ndkPath": null
-	
+	"ndkPath": null	
 }

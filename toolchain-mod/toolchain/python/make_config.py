@@ -46,7 +46,7 @@ class ToolchainConfig(MakeConfig):
 
 	def get_project_config(self, name, not_none=False):
 		return self.project_make.get_config(name, not_none)
-		
+
 	def get_project_filtered_list(self, name, prop, values):
 		return self.project_make.get_filtered_list(name, prop, values)
 	
