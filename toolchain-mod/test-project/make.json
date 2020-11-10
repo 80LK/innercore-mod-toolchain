@@ -52,6 +52,9 @@
 	"compile": [{
 		"source": "native/*",
 		"type": "native"
+	}, {
+		"source": "java/*",
+		"type": "java"
 	}],
 	"additional": [
 		{
