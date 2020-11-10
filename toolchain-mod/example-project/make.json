@@ -2,7 +2,7 @@
     "info": {
         "name": "Sample Mod",
         "description": "This is sample description",
-        "author": "WolfTeam",
+        "author": "Unknown",
         "version": "1.0",
         "icon": "icon.png",
         "api": "CoreEngine"
@@ -48,7 +48,16 @@
 			"language": "javascript"
 		}
 	],
-	"compile": [],
+	"compile": [
+		{
+			"source": "native/*",
+			"type": "native"
+		},
+		{
+			"source": "java/*",
+			"type": "java"
+		}
+	],
 	"additional": [
 		{
 			"source": "assets/root/*",
