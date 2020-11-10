@@ -1,15 +1,15 @@
 {
-	"debugAbi": "armeabi-v7a",
-	"abis": [
-		"armeabi-v7a",
-		"x86"
-	],
-	"linkNative": [
-		"minecraftpe",
-		"innercore",
-		"nativejs"
-	],
-	"currentProject":"test-project",
-	"pushTo": "storage/emulated/0/games/horizon/packs/innercore-dev/",
-	"ndkPath": null	
+    "debugAbi": "armeabi-v7a",
+    "abis": [
+        "armeabi-v7a",
+        "x86"
+    ],
+    "linkNative": [
+        "minecraftpe",
+        "innercore",
+        "nativejs"
+    ],
+    "currentProject": "example-project",
+    "pushTo": "storage/emulated/0/games/horizon/packs/innercore-dev/",
+    "ndkPath": null
 }

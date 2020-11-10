@@ -21,6 +21,7 @@
         "toolchain/build/lock": true,
         "toolchain/simple-project": true,
         "toolchain/*.bat": true,
-        "**/*.log": true
+        "**/*.log": true,
+        "example-project": false
     }
 }
