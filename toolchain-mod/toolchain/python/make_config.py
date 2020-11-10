@@ -3,7 +3,7 @@ import os
 import os.path
 
 from base_config import BaseConfig
-# toolchain config
+
 class MakeConfig(BaseConfig):
 	def __init__(self, filename):
 		self.filename = filename
