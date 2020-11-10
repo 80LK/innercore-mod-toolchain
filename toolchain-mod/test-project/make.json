@@ -48,7 +48,10 @@
 			"language": "javascript"
 		}
 	],
-	"compile": [],
+	"compile": [{
+		"source": "native/*",
+		"type": "native"
+	}],
 	"additional": [
 		{
 			"source": "assets/root/*",

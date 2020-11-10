@@ -38,7 +38,7 @@ def search_ndk_path(home_dir, contains_ndk=False):
 
 
 def get_ndk_path():
-	path_from_config = make_config.get_value("make.ndkPath")
+	path_from_config = make_config.get_value("ndkPath")
 	if path_from_config is not None:
 		return path_from_config
 	# linux
