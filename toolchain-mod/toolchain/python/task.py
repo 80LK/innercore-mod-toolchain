@@ -177,7 +177,7 @@ def task_push_everything():
 
 @task("clearOutput", lock=["assemble", "push", "native", "java"])
 def task_clear_output():
-	clear_directory(get_make_config().get_path("output"))
+	clear_directory(get_make_config().get_project_path("output"))
 	return 0
 
 
