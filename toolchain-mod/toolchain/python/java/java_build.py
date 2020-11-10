@@ -111,7 +111,7 @@ def setup_gradle_project(cache_dir, directories, classpath):
 							\"""" + make_config.get_path("toolchain/bin/dx.jar").replace("\\", "\\\\") + """\",
 							"--dex",
 							"--multi-dex",
-							"--output=\\\"""" + os.path.join(dex_dir, ".").replace("\\", "\\\\") + """\\\"",
+							"--output=" + file('""" + os.path.join(dex_dir, ".").replace("\\", "\\\\") + """'),
 							\"""" + os.path.join(build_dir, "${project.name}", "libs", "${project.name}-all.jar").replace("\\", "\\\\") + """\"
 						]
 					} 
