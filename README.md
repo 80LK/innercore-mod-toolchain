@@ -25,8 +25,7 @@ To create a new project for Inner Core, use the script *toolchain-setup.py*. It 
 python .\toolchain-setup.py project_folder
 ```
 
-The script will create a new project and set it up for native and/or java development. See detailed explanations in the video:
-[![Inner Core/Horizon Mods Development | Creating and Importing Projects](https://img.youtube.com/vi/ykAVJoxKTKc/0.jpg)](https://www.youtube.com/watch?v=ykAVJoxKTKc)
+The script will create a new project and set it up for native and java development.
 
 
 ## Importing existing project
@@ -36,7 +35,7 @@ To create a project from an existing Inner Core mod, use the script *toolchain-i
 python .\toolchain-import.py
 ```
 
-You can optionally pass old project directory as the first parameter of the script. This script will create required project structure and optionally set up the project for native and/or java development.
+You can optionally pass old project directory as the first parameter of the script. This script will create required project structure and optionally set up the project for native and java development.
 
 ## Installing Android NDK
 
@@ -46,14 +45,17 @@ To install Android NDK of any version on you computer, you should first download
 
 To run your first build, run (*Ctrl+Shift+B*) **Build and Push Everything** task. This task performs the required setup and builds the whole project. If your project contains native code, local NDK installation will be created. This can take some time.
 
+
 ## make.json
+Global *make.json* contains information about what libraries should be linked and what ABIs should the project target. You generally don't want to change these settings.
+
+## Project make.json
 
 *make.json* is the main configuration file of the project. In this file you can specify everything you need to build a mod for Inner Core. Most of the work, such as scripts generation and *build.config* creation is done under the hood. 
 
 Here's a description of some of the key properties you can specify in your *make.json*:
- - **global&#46;info** contains information about the mod name, author, version and description. The information is stored in the corresponding fields
- - **global&#46;api** specifies what JavaScript API is used in the mod by default
- - **make** contains information about what libraries should be linked and what ABIs should the project target. You generally don't want to change these settings
+ - **info** contains information about the mod name, author, version and description. The information is stored in the corresponding fields
+ - **info.api** specifies what JavaScript API is used in the mod by default
  - **resources** specifies what resources should be included in the output mod. There are currently four resource types available:  
    - *resource_directory* contains textures to use in Minecraft
    - *gui* contains all the gui textures
@@ -71,6 +73,11 @@ Here's a description of some of the key properties you can specify in your *make
    - *native* is used to compile C/C++ sources. Note that Android NDK is required to run this type of compilation
    - *java* is used to compile Java sources. Note that you have to install JDK of version 1.8 or higher to run this type of compilation
  - **additional** contains additional directories that should be copied to the mod build. In this example, root directory is copied to the root of the mod
+
+## Projects management
+
+There is a task (*Ctrl+Shift+B*) to create, select or delete a project. Select the required task and follow its instructions.
+
 
 ## Documentation and Further Resources
 
@@ -117,7 +124,7 @@ to the *libs* directory and add a new entry to the *.classpath* file:
 
 ## Working with Android Debug Bridge
 
-Android Debug Bridge allows this toolchain to push mod files to the remote device and to launch Horizon via USB cable. You can specify push path in the **make.pushTo** property in your *make.json*. When you run the appropriate build task (*Ctrl+Shift+B*), only the files that were changed are being pushed. 
+Android Debug Bridge allows this toolchain to push mod files to the remote device and to launch Horizon via USB cable. You can specify push path in the **pushTo** property in your global *make.json*. When you run the appropriate build task (*Ctrl+Shift+B*), only the files that were changed are being pushed. 
 
 ## Building and Publishing a Release Version of the Mod
 
