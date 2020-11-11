@@ -9,7 +9,7 @@
         "innercore",
         "nativejs"
     ],
-    "currentProject": "example-project",
+    "currentProject": null,
     "pushTo": "storage/emulated/0/games/horizon/packs/innercore-dev/",
     "ndkPath": null
 }

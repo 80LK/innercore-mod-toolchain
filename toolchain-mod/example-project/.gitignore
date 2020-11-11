@@ -1,7 +1,0 @@
-.vscode/.ropeproject
-output
-!.idea/runConfigurations
-**/tsconfig.json
-
-*.log
-*.icmod
