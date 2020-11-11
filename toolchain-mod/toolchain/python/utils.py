@@ -34,6 +34,10 @@ def copy_directory(src, dst, clear_dst=False):
 	if clear_dst:
 		clear_directory(dst)
 	from distutils.dir_util import copy_tree
+	
+	if not os.path.exists(dst):
+		os.mkdir(dst)
+	
 	copy_tree(src, dst)
 
 
