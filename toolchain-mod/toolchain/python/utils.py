@@ -38,21 +38,21 @@ def copy_directory(src, dst, clear_dst=False, replacement = True, ignore = []):
 	ensure_directory(dst)
 	if clear_dst:
 		clear_directory(dst)
-	
+
 	if not os.path.exists(dst):
 		os.mkdir(dst)
 
 	import shutil
 	for item in os.listdir(src):
-        s = os.path.join(src, item)
-        d = os.path.join(dst, item)
+		s = os.path.join(src, item)
+		d = os.path.join(dst, item)
 		if os.path.isfile(s) and os.path.exists(d) and not replacement:
-            continue
+			continue
 		
 		if os.path.isdir(s):
-            copy_directory(s, d, clear_dst, replacement, ignore)
-        else if indexOf(ignore, item) == -1:
-            shutil.copy2(s, d)
+			copy_directory(s, d, clear_dst, replacement, ignore)
+		elif indexOf(ignore, item) == -1:
+			shutil.copy2(s, d)
 	
 	# copy_tree(src, dst)
 

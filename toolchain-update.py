@@ -22,16 +22,16 @@ def indexOf(_list, _value):
 		return -1
 
 def copytree(src, dst, clear_dst=False, replacement=None, ignore = ["make.json"]):
-	import shutil
-	for item in os.listdir(src):
-        s = path.join(src, item)
-        d = path.join(dst, item)
-		if path.isfile(s) and path.exists(d) and not replacement:
+    import shutil
+    for item in os.listdir(src):
+        s = os.path.join(src, item)
+        d = os.path.join(dst, item)
+        if os.path.isfile(s) and os.path.exists(d) and not replacement:
             continue
-		
-		if path.isdir(s):
+        
+        if os.path.isdir(s):
             copy_directory(s, d, clear_dst, replacement)
-        else if indexOf(ignore, item) == -1:
+        elif indexOf(ignore, item) == -1:
             shutil.copy2(s, d)
 
 
