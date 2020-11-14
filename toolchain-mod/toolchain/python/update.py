@@ -35,8 +35,6 @@ def download_and_extract_toolchain(directory):
         if not path.exists(path.join(directory, "toolchain")):
             print("an error occured while extracting toolchain archive, please, retry the operation")
             exit()
-        
-
 
 def update():
     date_format = "%Y-%m-%dT%H:%M:%SZ"
@@ -68,9 +66,6 @@ def update():
         last_update_file.write(datetime.now().strftime(date_format))
 
     print("Update install.")
-
-    
-
 
 
 if __name__ == '__main__':
