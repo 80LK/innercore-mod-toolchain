@@ -8,6 +8,7 @@ from base_config import BaseConfig
 
 from utils import clear_directory, copy_directory, ensure_directory, copy_file
 import zipfile
+from setup import set_last_update
 
 
 
@@ -139,4 +140,5 @@ cleanup_if_required(destination)
 with open(make_path, "w", encoding="utf-8") as make_file:
 	make_file.write(json.dumps(make_obj, indent=" " * 4))
 
+set_last_update()
 print("project successfully set up")

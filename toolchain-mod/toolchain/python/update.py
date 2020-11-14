@@ -8,6 +8,13 @@ from make_config import make_config
 import utils
 from setup_commons import cleanup_if_required
 
+date_format = "%Y-%m-%dT%H:%M:%SZ"
+last_update_path = make_config.get_path("toolchain/bin/.last_update")
+
+def set_last_update():
+    with open(last_update_path, "w", encoding="utf-8") as last_update_file:
+        last_update_file.write(datetime.now().strftime(date_format))
+
 def download_and_extract_toolchain(directory):
     import urllib.request
     import zipfile
@@ -37,11 +44,9 @@ def download_and_extract_toolchain(directory):
             exit()
 
 def update():
-    date_format = "%Y-%m-%dT%H:%M:%SZ"
     
     print("Get information about your latest update.")
-    
-    last_update_path = make_config.get_path("toolchain/bin/.last_update")
+
     if path.exists(last_update_path):
         with open(last_update_path, "r", encoding="utf-8") as last_update_file:
             last_update = datetime.strptime(last_update_file.read(), date_format)
@@ -62,8 +67,7 @@ def update():
 
     download_and_extract_toolchain(make_config.root_dir)
 
-    with open(last_update_path, "w", encoding="utf-8") as last_update_file:
-        last_update_file.write(datetime.now().strftime(date_format))
+    set_last_update()
 
     print("Update install.")
 
