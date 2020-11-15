@@ -21,18 +21,24 @@ def indexOf(_list, _value):
 	except ValueError:
 		return -1
 
-def copytree(src, dst, clear_dst=False, replacement=None, ignore = ["make.json"]):
-    import shutil
-    for item in os.listdir(src):
-        s = os.path.join(src, item)
-        d = os.path.join(dst, item)
-        if os.path.isfile(s) and os.path.exists(d) and not replacement:
-            continue
-        
-        if os.path.isdir(s):
-            copy_directory(s, d, clear_dst, replacement)
-        elif indexOf(ignore, item) == -1:
-            shutil.copy2(s, d)
+def copytree(src, dst, clear_dst=False, replacement=None, ignore = [], ignore_list = [], ignoreEx = True):
+    from glob import glob
+
+	if len(ignore) > 0:
+		for i in ignore:
+			ignore_list += glob(os.path.join(dst, i))
+
+	import shutil
+	for item in os.listdir(src):
+		s = os.path.join(src, item)
+		d = os.path.join(dst, item)
+		if os.path.isfile(s) and os.path.exists(d) and not replacement:
+			continue
+		
+		if os.path.isdir(s):
+			copy_directory(s, d, clear_dst, replacement, ignore_list = ignore_list, ignoreEx = ignoreEx)
+		elif indexOf(ignore_list, d) == -1:
+			shutil.copy2(s, d)
 
 
 def download_and_extract_toolchain(directory):
@@ -53,7 +59,7 @@ def download_and_extract_toolchain(directory):
         zip_ref.extractall(directory)
 
     try:
-        copytree(path.join(directory, "innercore-mod-toolchain-master/toolchain-mod"), directory, ignore = ["make.json"])
+        copytree(path.join(directory, "innercore-mod-toolchain-master/toolchain-mod"), directory, ignore = ["make.json", "*/adb/*"])
         shutil.rmtree(path.join(directory, "innercore-mod-toolchain-master"))
     except Exception as ex: 
         print(ex)
