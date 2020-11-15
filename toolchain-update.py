@@ -6,7 +6,7 @@ import sys
 from distutils.dir_util import copy_tree
 from subprocess import call
 import platform
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 def get_python():
@@ -85,7 +85,7 @@ download_and_extract_toolchain(directory)
 
 last_update_path = path.join(directory, "toolchain", "bin", ".last_update")
 with open(last_update_path, "w", encoding="utf-8") as last_update_file:
-    last_update_file.write(datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ"))
+    last_update_file.write(datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
 
 os.remove(path.join(directory, "toolchain-update.py"))
 print("Toolchain update successful")
