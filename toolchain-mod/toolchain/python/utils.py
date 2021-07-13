@@ -86,3 +86,9 @@ def relative_path(directory, file):
 	else:
 		raise RuntimeError("file is not in a directory: file=" + file + " dir=" + directory)
 
+def shortcodes(_input):
+	from datetime import datetime
+	date = datetime.now()
+	_input  = _input.replace("{datestamp}", date.strftime("%Y%m%d"))
+	_input  = _input.replace("{timestamp}", date.strftime("%H%M"))
+	return _input
